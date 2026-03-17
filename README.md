@@ -65,8 +65,9 @@ Para que possamos organizar o nosso código, nós dividimos ele pensando em um p
 6. Rotas
 Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.js e personRoute.js. O arquivo index.js seria para passar a versão que esta a nossa API ou para que possamos passar para um balanceador (Load Balancer) verificar se a nossa API está no ar, o personRoute.js contem as rotas que iremos utilizar para nossa PersonController.<br>
 
+Index.js
 
-> [!Index.js]
+> [!NOTE]
 >const express = require('express');<br>
 >const router = express.Router();<br>
 >router.get('/', function (req, res, next) {<br>
@@ -77,9 +78,9 @@ Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.j
 >});<br>
 >module.exports = router;<br><br>
 
+PersonRoute
 
-
-> [!PersonRoute]
+> [!NOTE]
 >const express = require('express');<br>
 >const router = express.Router();<br>
 >const controller = require('../controllers/personController')<br>
