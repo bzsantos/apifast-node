@@ -25,7 +25,7 @@ Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
 
 <br>
-<div align="center">
+<div align="left">
 const app = require('../src/app');<br>
 const port = normalizaPort(process.env.PORT || '3000');<br>
 function normalizaPort(val) {<br>
