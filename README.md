@@ -10,10 +10,12 @@ Para quem não conhece o Express.js ele é um excelente framework do Node.js que
 Para esse artigo não iremos abordar a instalação do Node.js, iremos partir de uma maquina com ele já instalado e configurado. Crie um novo diretório no seu computador e crie uma nova pasta, nós iremos utilizar node-express, mas você pode escolher um outro nome de sua preferência. Feito isso execute o comando a baixo para baixar o nosso modulo.
 
 npm install express
+
 2. Configuração
 Agora nós precisamos criar o nosso arquivo package.json, esse é o arquivo de ponto de partido dos nossos projetos Node. Para isso, execute o comando a baixo, ele irá criar o nosso arquivo com a referencia do module express.
 
 npm init -y
+
 3. Estrutura do nosso projeto
 Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 
@@ -22,6 +24,7 @@ Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 4. Criando arquivo de Server
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
 
+[!NOTE]
 const app = require('../src/app');
 const port = normalizaPort(process.env.PORT || '3000');
 function normalizaPort(val) {
@@ -37,6 +40,7 @@ return false;
 app.listen(port, function () {
     console.log(`app listening on port ${port}`)
 })
+
 No código a cima nós estamos importando um modulo que iremos criar nos próximos passos, depois estamos definindo uma porta para que ele seja executado, no final estamos passando para o método app.listen a porta que queremos que ele escute o nosso projeto e de um console.log com ela.
 
 5. Controller
@@ -53,6 +57,7 @@ exports.delete = (req, res, next) => {
     let id = req.params.id;
     res.status(200).send(`Requisição recebida com sucesso! ${id}`);
 };
+
 6. Rotas
 Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.js e personRoute.js. O arquivo index.js seria para passar a versão que esta a nossa API ou para que possamos passar para um balanceador (Load Balancer) verificar se a nossa API está no ar, o personRoute.js contem as rotas que iremos utilizar para nossa PersonController.
 
@@ -67,6 +72,8 @@ router.get('/', function (req, res, next) {
     });
 });
 module.exports = router;
+
+
 PersonRoute
 
 const express = require('express');
@@ -89,11 +96,15 @@ const personRoute = require('./routes/personRoute');
 app.use('/', index);
 app.use('/persons', personRoute);
 module.exports = app;
+
+
 8. Nodemon
 
 O pacote nodemon nós auxilia no momento do nosso desenvolvimento, com ele nós não precisamos dar stop e subir novamente a nossa APP, ele verifica que ocorreu uma alteração e já faz o refresh automaticamente. Para instalar ele, execute o comando a baixo na sua console.
 
 npm install -g nodemon
+
+
 9. Arquivo Package.config
 
 Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependên
@@ -115,6 +126,7 @@ Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as depend�
   "author": "",
   "license": "ISC"
 }
+
 10. Testes
 
 Para que possamos testar o nosso projeto, digite o comando npm install na sua console para importar os pacotes necessários para a nossa aplicação, assim que ele finalizar execute o comando npm start. Caso tudo OK nos passos anteriores, você irá ver a mensagem a baixo na sua console.
