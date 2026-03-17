@@ -112,23 +112,24 @@ npm install -g nodemon<br><br>
 
 Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependên<br>
 
-{<br>
-  "name": "node-express",<br>
-  "version": "1.0.0",<br>
-  "description": "",<br>
-  "main": "index.js",<br>
-  "dependencies": {<br>
-    "express": "^4.15.4"<br>
-  },<br>
-  "devDependencies": {},<br>
-  "scripts": {<br>
-    "test": "echo \"Error: no test specified\" && exit 1",<br>
-    "start": "nodemon ./bin/server.js"<br>
-  },<br>
-  "keywords": [],<br>
-  "author": "",<br>
-  "license": "ISC"<br>
-}<br><br>
+> [!NOTE]
+>{<br>
+>  "name": "node-express",<br>
+>  "version": "1.0.0",<br>
+> "description": "",<br>
+>  "main": "index.js",<br>
+>  "dependencies": {<br>
+>    "express": "^4.15.4"<br>
+>  },<br>
+>  "devDependencies": {},<br>
+>  "scripts": {<br>
+>    "test": "echo \"Error: no test specified\" && exit 1",<br>
+>    "start": "nodemon ./bin/server.js"<br>
+>  },<br>
+>  "keywords": [],<br>
+>  "author": "",<br>
+>  "license": "ISC"<br>
+> }<br><br>
 
 10. Testes<br>
 
