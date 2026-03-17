@@ -44,90 +44,91 @@ app.listen(port, function () {<br>
 No código a cima nós estamos importando um modulo que iremos criar nos próximos passos, depois estamos definindo uma porta para que ele seja executado, no final estamos passando para o método app.listen a porta que queremos que ele escute o nosso projeto e de um console.log com ela.
 
 5. Controller
-Para que possamos organizar o nosso código, nós dividimos ele pensando em um padrão MVC, no código a baixo nós temos as nossas Actions das nossas Controllers.
+Para que possamos organizar o nosso código, nós dividimos ele pensando em um padrão MVC, no código a baixo nós temos as nossas Actions das nossas Controllers.<br>
 
-exports.post = (req, res, next) => {
-    res.status(201).send('Requisição recebida com sucesso!');
-};
-exports.put = (req, res, next) => {
-    let id = req.params.id;
-    res.status(201).send(`Requisição recebida com sucesso! ${id}`);
-};
-exports.delete = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);
-};
+exports.post = (req, res, next) => {<br>
+    res.status(201).send('Requisição recebida com sucesso!');<br>
+};<br>
+exports.put = (req, res, next) => {<br>
+    let id = req.params.id;<br>
+    res.status(201).send(`Requisição recebida com sucesso! ${id}`);<br>
+};<br>
+exports.delete = (req, res, next) => {<br>
+    let id = req.params.id;<br>
+    res.status(200).send(`Requisição recebida com sucesso! ${id}`);<br>
+};<br>
 
 6. Rotas
-Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.js e personRoute.js. O arquivo index.js seria para passar a versão que esta a nossa API ou para que possamos passar para um balanceador (Load Balancer) verificar se a nossa API está no ar, o personRoute.js contem as rotas que iremos utilizar para nossa PersonController.
+Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.js e personRoute.js. O arquivo index.js seria para passar a versão que esta a nossa API ou para que possamos passar para um balanceador (Load Balancer) verificar se a nossa API está no ar, o personRoute.js contem as rotas que iremos utilizar para nossa PersonController.<br>
 
-Index.js
+Index.js<br>
 
-const express = require('express');
-const router = express.Router();
-router.get('/', function (req, res, next) {
-    res.status(200).send({
-        title: "Node Express API",
-        version: "0.0.1"
-    });
-});
-module.exports = router;
+const express = require('express');<br>
+const router = express.Router();<br>
+router.get('/', function (req, res, next) {<br>
+    res.status(200).send({<br>
+        title: "Node Express API",<br>
+        version: "0.0.1"<br>
+    });<br>
+});<br>
+module.exports = router;<br><br>
 
 
 PersonRoute
 
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers/personController')
-router.post('/', controller.post);
-router.put('/:id', controller.put);
-router.delete('/:id', controller.delete);
-module.exports = router;
-7. Configurações.
+const express = require('express');<br>
+const router = express.Router();<br>
+const controller = require('../controllers/personController')<br>
+router.post('/', controller.post);<br>
+router.put('/:id', controller.put);<br>
+router.delete('/:id', controller.delete);<br>
+module.exports = router;<br>
+<br>
+7. Configurações.<br>
 
-O arquivo app.js é responsável pelas configurações do nosso projeto, nele que nós devemos configurar a nossa base de dados, rotas … etc. Pensando novamente no mundo .NET eu ousaria dizer que ele seria o nosso web.config.
+O arquivo app.js é responsável pelas configurações do nosso projeto, nele que nós devemos configurar a nossa base de dados, rotas … etc. Pensando novamente no mundo .NET eu ousaria dizer que ele seria o nosso web.config.<br>
 
-const express = require('express');
-const app = express();
-const router = express.Router();
-//Rotas
-const index = require('./routes/index');
-const personRoute = require('./routes/personRoute');
-app.use('/', index);
-app.use('/persons', personRoute);
-module.exports = app;
-
-
-8. Nodemon
-
-O pacote nodemon nós auxilia no momento do nosso desenvolvimento, com ele nós não precisamos dar stop e subir novamente a nossa APP, ele verifica que ocorreu uma alteração e já faz o refresh automaticamente. Para instalar ele, execute o comando a baixo na sua console.
-
-npm install -g nodemon
+const express = require('express');<br>
+const app = express();<br>
+const router = express.Router();<br>
+//Rotas<br>
+const index = require('./routes/index');<br>
+const personRoute = require('./routes/personRoute');<br>
+app.use('/', index);<br>
+app.use('/persons', personRoute);<br>
+module.exports = app;<br><br>
 
 
-9. Arquivo Package.config
+8. Nodemon<br>
 
-Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependên
+O pacote nodemon nós auxilia no momento do nosso desenvolvimento, com ele nós não precisamos dar stop e subir novamente a nossa APP, ele verifica que ocorreu uma alteração e já faz o refresh automaticamente. Para instalar ele, execute o comando a baixo na sua console.<br><br>
 
-{
-  "name": "node-express",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "express": "^4.15.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./bin/server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
+npm install -g nodemon<br><br>
 
-10. Testes
+
+9. Arquivo Package.config<br>
+
+Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependên<br>
+
+{<br>
+  "name": "node-express",<br>
+  "version": "1.0.0",<br>
+  "description": "",<br>
+  "main": "index.js",<br>
+  "dependencies": {<br>
+    "express": "^4.15.4"<br>
+  },<br>
+  "devDependencies": {},<br>
+  "scripts": {<br>
+    "test": "echo \"Error: no test specified\" && exit 1",<br>
+    "start": "nodemon ./bin/server.js"<br>
+  },<br>
+  "keywords": [],<br>
+  "author": "",<br>
+  "license": "ISC"<br>
+}<br><br>
+
+10. Testes<br>
 
 Para que possamos testar o nosso projeto, digite o comando npm install na sua console para importar os pacotes necessários para a nossa aplicação, assim que ele finalizar execute o comando npm start. Caso tudo OK nos passos anteriores, você irá ver a mensagem a baixo na sua console.
 
