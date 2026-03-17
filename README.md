@@ -96,7 +96,7 @@ O arquivo app.js é responsável pelas configurações do nosso projeto, nele qu
 > [!NOTE]
 >const express = require('express');<br>
 >const app = express();<br>
->app.use(express.json());
+>app.use(express.json());<br>
 >const router = express.Router();<br>
 >//Rotas<br>
 >const index = require('./routes/index');<br>
