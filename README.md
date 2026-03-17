@@ -25,80 +25,83 @@ Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
 
 <br>
-<div align="left" border="1">
-const app = require('../src/app');<br>
-const port = normalizaPort(process.env.PORT || '3000');<br>
-function normalizaPort(val) {<br>
-    const port = parseInt(val, 10);<br>
-    if (isNaN(port)) {<br>
-        return val;<br>
-    }<br>
-if (port >= 0) {<br>
-        return port;<br>
-    }<br>
-return false;<br>
-}<br>
-app.listen(port, function () {<br>
-    console.log(`app listening on port ${port}`)<br>
-})<br>
-</div>
+
+> [!NOTE]
+>const app = require('../src/app');<br>
+>const port = normalizaPort(process.env.PORT || '3000');<br>
+>function normalizaPort(val) {<br>
+>    const port = parseInt(val, 10);<br>
+>    if (isNaN(port)) {<br>
+>        return val;<br>
+>    }<br>
+>if (port >= 0) {<br>
+>        return port;<br>
+>    }<br>
+>return false;<br>
+>}<br>
+>app.listen(port, function () {<br>
+>    console.log(`app listening on port ${port}`)<br>
+>})<br>
+
 <br>
 No código a cima nós estamos importando um modulo que iremos criar nos próximos passos, depois estamos definindo uma porta para que ele seja executado, no final estamos passando para o método app.listen a porta que queremos que ele escute o nosso projeto e de um console.log com ela.
 
 5. Controller
 Para que possamos organizar o nosso código, nós dividimos ele pensando em um padrão MVC, no código a baixo nós temos as nossas Actions das nossas Controllers.<br>
 
-exports.post = (req, res, next) => {<br>
-    res.status(201).send('Requisição recebida com sucesso!');<br>
-};<br>
-exports.put = (req, res, next) => {<br>
-    let id = req.params.id;<br>
-    res.status(201).send(`Requisição recebida com sucesso! ${id}`);<br>
-};<br>
-exports.delete = (req, res, next) => {<br>
-    let id = req.params.id;<br>
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);<br>
-};<br>
+> [!NOTE]
+>exports.post = (req, res, next) => {<br>
+>    res.status(201).send('Requisição recebida com sucesso!');<br>
+>};<br>
+>exports.put = (req, res, next) => {<br>
+>    let id = req.params.id;<br>
+>    res.status(201).send(`Requisição recebida com sucesso! ${id}`);<br>
+>};<br>
+>exports.delete = (req, res, next) => {<br>
+>    let id = req.params.id;<br>
+>    res.status(200).send(`Requisição recebida com sucesso! ${id}`);<br>
+>};<br>
 
 6. Rotas
 Agora vamos criar as nossas rotas, nessa parte nós temos dois arquivos: index.js e personRoute.js. O arquivo index.js seria para passar a versão que esta a nossa API ou para que possamos passar para um balanceador (Load Balancer) verificar se a nossa API está no ar, o personRoute.js contem as rotas que iremos utilizar para nossa PersonController.<br>
 
-Index.js<br>
 
-const express = require('express');<br>
-const router = express.Router();<br>
-router.get('/', function (req, res, next) {<br>
-    res.status(200).send({<br>
-        title: "Node Express API",<br>
-        version: "0.0.1"<br>
-    });<br>
-});<br>
-module.exports = router;<br><br>
+> [!Index.js]
+>const express = require('express');<br>
+>const router = express.Router();<br>
+>router.get('/', function (req, res, next) {<br>
+>    res.status(200).send({<br>
+>        title: "Node Express API",<br>
+>        version: "0.0.1"<br>
+>    });<br>
+>});<br>
+>module.exports = router;<br><br>
 
 
-PersonRoute
 
-const express = require('express');<br>
-const router = express.Router();<br>
-const controller = require('../controllers/personController')<br>
-router.post('/', controller.post);<br>
-router.put('/:id', controller.put);<br>
-router.delete('/:id', controller.delete);<br>
-module.exports = router;<br>
+> [!PersonRoute]
+>const express = require('express');<br>
+>const router = express.Router();<br>
+>const controller = require('../controllers/personController')<br>
+>router.post('/', controller.post);<br>
+>router.put('/:id', controller.put);<br>
+>router.delete('/:id', controller.delete);<br>
+>module.exports = router;<br>
 <br>
 7. Configurações.<br>
 
 O arquivo app.js é responsável pelas configurações do nosso projeto, nele que nós devemos configurar a nossa base de dados, rotas … etc. Pensando novamente no mundo .NET eu ousaria dizer que ele seria o nosso web.config.<br>
 
-const express = require('express');<br>
-const app = express();<br>
-const router = express.Router();<br>
-//Rotas<br>
-const index = require('./routes/index');<br>
-const personRoute = require('./routes/personRoute');<br>
-app.use('/', index);<br>
-app.use('/persons', personRoute);<br>
-module.exports = app;<br><br>
+> [!NOTE]
+>const express = require('express');<br>
+>const app = express();<br>
+>const router = express.Router();<br>
+>//Rotas<br>
+>const index = require('./routes/index');<br>
+>const personRoute = require('./routes/personRoute');<br>
+>app.use('/', index);<br>
+>app.use('/persons', personRoute);<br>
+>module.exports = app;<br><br>
 
 
 8. Nodemon<br>
@@ -110,7 +113,7 @@ npm install -g nodemon<br><br>
 
 9. Arquivo Package.config<br>
 
-Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependên<br>
+Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as dependência<br>
 
 > [!NOTE]
 >{<br>
@@ -134,15 +137,6 @@ Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as depend�
 10. Testes<br>
 
 Para que possamos testar o nosso projeto, digite o comando npm install na sua console para importar os pacotes necessários para a nossa aplicação, assim que ele finalizar execute o comando npm start. Caso tudo OK nos passos anteriores, você irá ver a mensagem a baixo na sua console.
-
-> [!NOTE]
-> **Título do Card**
-> Conteúdo do card aqui. Você pode usar *itálico*, **negrito**, ou links.
-
-> [!TIP]
-> **Dica Rápida**
-> Use este card para informações relevantes.
-
 
 <div align="center"> <img src="terminal.jpg" width="400" height="140"> </div>
 
