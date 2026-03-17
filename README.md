@@ -128,12 +128,18 @@ Esse seria o arquivo inicial nos projetos Node, nele nÃ³s temos todas as dependÃ
 >  "devDependencies": {},<br>
 >  "scripts": {<br>
 >    "test": "echo \"Error: no test specified\" && exit 1",<br>
->    "start": "nodemon ./bin/server.js"<br>
+>    "start": "npx nodemon ./bin/server.js"<br>
 >  },<br>
 >  "keywords": [],<br>
 >  "author": "",<br>
 >  "license": "ISC"<br>
 > }<br><br>
+
+Rode o comando: npm install
+
+e depois
+
+npx nodemon ./bin/server.js
 
 10. Testes<br>
 
