@@ -2,4 +2,4 @@
 Fast mode to build API en Nodejs
 <br>
 
-<div align="center"> <img src="node.jpg" width="900"> </div>
+<div align="center"> <img src="node.jpg" width="900" height="400"> </div>
