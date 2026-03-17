@@ -17,7 +17,7 @@ npm init -y
 3. Estrutura do nosso projeto
 Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 
-<div align="center"> <img src="estrutura.jpg" width="500" height="300"> </div>
+<div align="center"> <img src="estrutura.jpg" width="400" height="300"> </div>
 
 4. Criando arquivo de Server
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
@@ -119,8 +119,8 @@ Esse seria o arquivo inicial nos projetos Node, nele nós temos todas as depend�
 
 Para que possamos testar o nosso projeto, digite o comando npm install na sua console para importar os pacotes necessários para a nossa aplicação, assim que ele finalizar execute o comando npm start. Caso tudo OK nos passos anteriores, você irá ver a mensagem a baixo na sua console.
 
-<div align="center"> <img src="""terminal.jpg""" width="800" height="200"> </div>
+<div align="center"> <img src="terminal.jpg" width="400" height="100"> </div>
 
 Agora abra no seu navegador o endereço http://localhost:3000/. Ele deve apresentar a mensagem a baixo como retorno da nossa rota Index.
 
-<div align="center"> <img src="final.jpg" width="800" height="200"> </div>
+<div align="center"> <img src="final.jpg" width="300" height="90"> </div>
