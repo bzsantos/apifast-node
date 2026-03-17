@@ -96,6 +96,7 @@ O arquivo app.js é responsável pelas configurações do nosso projeto, nele qu
 > [!NOTE]
 >const express = require('express');<br>
 >const app = express();<br>
+>app.use(express.json());
 >const router = express.Router();<br>
 >//Rotas<br>
 >const index = require('./routes/index');<br>
@@ -150,3 +151,5 @@ Para que possamos testar o nosso projeto, digite o comando npm install na sua co
 Agora abra no seu navegador o endereço http://localhost:3000/. Ele deve apresentar a mensagem a baixo como retorno da nossa rota Index.
 
 <div align="center"> <img src="final.jpg" width="300" height="140"> </div>
+
+Obs: olhe dentro do app.js verá '/person' que é usada na url para testar a API, exeplo: http://localhost:3000/persons/1
