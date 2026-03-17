@@ -24,23 +24,23 @@ Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 4. Criando arquivo de Server
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
 
-[!NOTE]
-const app = require('../src/app');
-const port = normalizaPort(process.env.PORT || '3000');
-function normalizaPort(val) {
-    const port = parseInt(val, 10);
-    if (isNaN(port)) {
-        return val;
-    }
-if (port >= 0) {
-        return port;
-    }
-return false;
-}
-app.listen(port, function () {
-    console.log(`app listening on port ${port}`)
-})
-
+<br>
+const app = require('../src/app');<br>
+const port = normalizaPort(process.env.PORT || '3000');<br>
+function normalizaPort(val) {<br>
+    const port = parseInt(val, 10);<br>
+    if (isNaN(port)) {<br>
+        return val;<br>
+    }<br>
+if (port >= 0) {<br>
+        return port;<br>
+    }<br>
+return false;<br>
+}<br>
+app.listen(port, function () {<br>
+    console.log(`app listening on port ${port}`)<br>
+})<br>
+<br>
 No código a cima nós estamos importando um modulo que iremos criar nos próximos passos, depois estamos definindo uma porta para que ele seja executado, no final estamos passando para o método app.listen a porta que queremos que ele escute o nosso projeto e de um console.log com ela.
 
 5. Controller
