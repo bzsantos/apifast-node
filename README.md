@@ -17,7 +17,7 @@ npm init -y
 3. Estrutura do nosso projeto
 Crie uma estrutura de pastas e arquivos conforme está na imagem a baixo:
 
-<div align="center"> <img src="estrutura.jpg" width="600" height="400"> </div>
+<div align="center"> <img src="estrutura.jpg" width="500" height="300"> </div>
 
 4. Criando arquivo de Server
 Vamos agora criar o arquivo de inicialização do nosso projeto, para quem vem do mundo php seria o nosso index.php ou HomeController.cs no MVC do .NET. Para isso, abra o seu arquivo server.js e cole o código a baixo nele:
